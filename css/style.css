@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'Ikaros-Regular'; 
+    src: url("Ikaros-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Glitch inside'; 
+    src: url("Glitch inside.otf") format("opentype");
+}
+
+body {
+	background-color:  #730305;
+	height: 100%;
+	font-family: 'Ikaros-Regular',sans-serif;
+	color:white;
+}
+
+p{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Glitch inside', monospace;
+	text-align: center;
+}
+
+banner {
+	display: table-row;
+	width: 25%;
+	margin-left: auto;
+ 	margin-right: auto;
+  }
+
+table{
+	background-color: #401B1B;
+	width: 100%;
+	margin-left: auto;
+ 	margin-right: auto;
+	font-family: 'Glitch inside', sans-serif;
+	text-align: center;
+	table-layout: fixed;
+}
+
+div#first{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    background-color: #BF920B;
+	text-align: center;
+
+}
+
+div#second{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    background-color: #BFA678;
+	text-align: center;
+}
+
+div#third{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    background-color: #BF7C63;
+	text-align: center;
+
+}
+
+div#fourth{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    background-color: #260A03;
+	text-align: center;
+}
+
+div#fifth{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    background-color: #8C342B;
+	text-align: center;
+}
+
+
+.center {
+	display: table-row;
+	width: 25%;
+	margin-left: auto;
+ 	margin-right: auto;
+  }
+
+
+  /* styled the navbar*/
+#navbar{
+    overflow: hidden;
+    background-color: #260A03;
+}
+
+/*navbar links*/
+
+#navbar a{
+    display: block;
+    color: #f2f2f2;
+    font-family: 'Glitch inside', monospace;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+/* change color + highlight on hober */
+#navbar a:hover{
+    color: hotpink;
+    background-color: white;
+}
+
+/* sticky navbar*/
+.sticky{
+	z-index: 1000;
+    position:fixed;
+    top: 0;
+    width: 100%
+}
+
+/*add some top padding to prevent quick movements while scrolling*/
+.sticky + .content{
+    padding-top: 60px;
+}
+
+.image-effect{
+	margin: 2rem 0;
+	padding: 0;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+}
+
+.image-effect > img{
+	width: 100%;
+	max-width: 100%;
+}
+
+.image-effect--bw{
+	filter: grayscale(100%);
+	transition: filter 0.5s ease-in-out;
+}
+
+.image-effect--bw:hover{
+	filter: grayscale(0%);
+}

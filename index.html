@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <title>Home | Kai Lacerna</title>
+</head>
+
+<body>
+
+    <img src="images/KDT.png" alt="banner" height="50%" width="100%" margin-left="auto" margin-right="auto">
+
+    <div id="navbar">
+        <table>
+            <tr>
+                <td><a href="index.html"> Home</a></td>
+                <td><a href="pages/aboutme.html"> About</a></td>
+                <td><a href="pages/myportfolio.html"> Portfolio</a></td>
+                <td><a href="pages/contact.html"> Contact</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stuff" id="first">
+        <h1>HI, I'M KAI</h1>
+        <p>I do Game Development, Art and Writing!</p>
+        <p>If you're looking at this page, thanks for checking it out! It means a lot. And, if you're still reading this
+            little paragraph, check out some of my code work!</p>
+        <p>Javascript ain't hard, but it sure is time consuming.</p>
+        <p>I mean, look at it. It's that one DVD Logo animation, but it's a circle.</p>
+        <p>Will it ever hit a perfect corner?</p>
+    </div>
+
+
+    <div class="stuff" id="second">
+        <canvas id="sketch" width="925" height="800"></canvas>
+        <script>
+            document.addEventListener("DOMContentLoaded", main);
+            var sketch;
+            var context;
+            var circle = { "x": 0, "y": 100, "r": 25 }; //Circle is an object with x, y and r properties.
+            var dx = 3; //Incremental value of x each time we redraw the screen
+            var dy = 3; //Incremental value of x each time we redraw the screen
+            var accel = 1.05;
+            var fps = 10; //Frames per second | Refresh rate of the screen
+            const pi = Math.PI;
+
+            function main() {
+                sketch = document.getElementById("sketch"); //getting the context of our canvas
+                context = sketch.getContext("2d");
+                circle = { "x": 25, "y": sketch.offsetHeight / 2, "r": 25 }; //Updating properties
+                setInterval(animate, fps); //Animating the screen every so often
+            }
+
+            function animate() {
+                context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);  //Clears the canvas (screen)
+                draw_circle(circle.x, circle.y, circle.r); //Calls out draw_circle function
+                circle.x = circle.x + dx;
+                circle.y = circle.y + dy;
+                //The next part is a test of the x position using a conditional
+
+                if (circle.x > sketch.offsetWidth - dx - circle.r) { //If right-edge of circle exceeds the right wall, reverse direction
+                    dx = dx*accel;
+                    dx = dx * -1; //Reverse direction via multiply a negative by a positive values into negative ones. 
+                } else if (circle.x < circle.r - dx) { //If left-edge of circle exceeds the left wall, reverse direction
+                    dx = dx*accel;
+                    dx = dx * -1; //Reverse direction via multiply a negative by a negative values into positive ones. 
+                }
+
+                if (circle.y > sketch.offsetHeight - dy - circle.r) { //If right-edge of circle exceeds the right wall, reverse direction
+                    dy = dy*accel;
+                    dy = dy * -1; //Reverse direction via multiply a negative by a positive values into negative ones. 
+                } else if (circle.y < circle.r - dy) { //If left-edge of circle exceeds the left wall, reverse direction
+                    dy = dy*accel;
+                    dy = dy * -1; //Reverse direction via multiply a negative by a negative values into positive ones. 
+                }
+                console.log(dx +","+ dy);
+
+                if((dx || dy) >= 12){
+                    accel = 1;
+                }
+               
+            }
+
+            function draw_circle(x, y, r) {
+                context.beginPath();
+                context.arc(x, y, r, 0, 2 * pi, true);
+                context.closePath();
+                context.fill();
+            }
+        </script>
+    </div>
+
+    <div class="stuff" id="third">
+        <h1>Wait, you're still scrolling?</h1>
+        <p>Well, I guess now is a good a time as any to credit the two fonts I used here!</p>
+        <p>The first is called Glitch Inside by MaknaStudio, you can find a link to it just below. It's a cool, sci-fi looking one which I use for all the headers!</p>
+        <p>The second is called Ikaros Sans by Matt Ellis. As you can see, it's the text used in this paragraph! It's sleek, it's modern, it's kinda hot.</p>
+
+        <a href="https://www.dafont.com/glitch-inside.font"> Glitch Inside Font</a>
+        <a href="https://befonts.com/ikaros-font.html"> Ikaros Sans Font</a>
+    </div>
+
+    <div class="stuff" id="fourth">
+        <p>The only reason you're down here is because you're really curious about me. </p>
+        <p>I have an About Me page, you know!</p>
+        <p>Well, I suppose I could share one other thing down here...</p>
+        <p>You see that banner up there, right? It's actually from a personal setting of mine called the Bastion.</p>
+        <p>Since you came down here to check out my page, I guess I'll even share a bit of Bastion's lore with you.</p>
+        <p>Cuz you scrolled down so far.</p>
+    </div>
+
+    <div class="stuff" id="fifth">
+        <h1>Year 88 of the Red Age</h1>
+        <h2>he Last Message from the Bastion Brain</h2>
+        <p>
+             
+            It has been nearly 9 decades of war and fighting, of death and devastation throughout the world. I am known as The Bastion Brain, leader of this city and overseer of the Fixers. Normally, I would not reach out to a band of newly recruited Fixers like yourselves, but my cabinet tells me that it's good for morale if people know I do truly exist, and that I am still alive. You all have signed up for an arduous task, and I would not dare to say that you’ll all do fine. The monstrosities we call the Aberrants, the people who seek to turn this city into a cesspool of filth and grime, the losses you’re sure to come into contact with during your job; these are all things that place immense strain on your physical and mental health. Just know, as Fixers, you are free to resign at any time. Nobody will judge you. But, we are in desperate need of your abilities. Anybody who’s been inducted as a Fixer has talent, and so if you’re here, you’ll certainly be able to handle at least a few months of this work. I just hope that you all survive long enough to reap the benefits of this trade. With this, I wish you all the best of luck in your endeavors. May you find your way through this unrelenting hell.
+            </p>
+    </div>
+
+    <script src="css/navbar.v01.js"></script>
+
+</body>
+
+</html>
